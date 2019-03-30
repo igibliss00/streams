@@ -20,7 +20,7 @@ class GoogleAuth extends React.Component {
 
     // sign in and out button functions 
     onSignInClick = () => {
-        this.auth.signIn();
+        this.auth.signIn(this.auth.currentUser.get().getId());
     }
 
     onSignOutClick = () => {
@@ -51,7 +51,7 @@ class GoogleAuth extends React.Component {
             return (
                 <button onClick={this.onSignInClick} className="ui red google button">
                     <i className="google icon" />
-                    Sign In
+                    Sign In with Google
                 </button>
             )
         }
