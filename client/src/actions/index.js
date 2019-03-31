@@ -12,7 +12,7 @@ import streams from '../api/streams';
 export const signIn = userId => {
     return {
         type: SIGN_IN,
-        userId: userId
+        payload: userId
     };
 };
 
@@ -22,9 +22,10 @@ export const signOut = _ => {
     };
 };
 
-export const createStream = formValue => {
-    return async dispatch => {
-        const response = await streams.post('/streams', formValue);
+export const createStream = formValues => {
+    return async (dispatch, getState) => {
+        const { userId }= getState().auth;
+        const response = await streams.post('/streams', { ...formValues, userId });
         dispatch({type: CREATE_STREAM, payload: response.data});
     };
 }; 
