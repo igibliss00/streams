@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { SIGN_IN, SIGN_OUT } from './types';
-
-// action creators
-export const signIn = (userId) => {
-    return ({
-        type: SIGN_IN,
-        payload: userId
-    });
-};
-
-export const signOut = () => {
-    return ({
-        type: SIGN_OUT
-    });
-};
-=======
 import { 
     SIGN_IN, 
     SIGN_OUT, 
@@ -73,4 +56,3 @@ export const deleteStream = id => {
         dispatch({type: DELETE_STREAM, payload: id});
     }
 }
->>>>>>> StreamReducer
