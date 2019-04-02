@@ -48,8 +48,11 @@ export const fetchStream = id => {
 
 export const editStream = (id, formValue) => {
     return async dispatch => {
-        const response = await streams.edit(`/streams/${id}`, formValue);
+        // using patch instead of put updates only the relevant values.  
+        // the put method will update all the values and delete the ID and the UserID since formValue doesn't contain them
+        const response = await streams.patch(`/streams/${id}`, formValue);
         dispatch({type: EDIT_STREAM, payload: response.data});
+        history.push('/')
     };
 };
 
