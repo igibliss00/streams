@@ -43,7 +43,6 @@ class StreamLists extends React.Component {
         })
     }
 
-
     // create button when logged in
     renderCreate() {
         if (this.props.isSignedIn) {
